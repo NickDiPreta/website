@@ -10,10 +10,10 @@ async function generate() {
     feed_url: 'https://yoursite.com/feed.xml'
   })
 
-  const posts = await fs.readdir(path.join(__dirname, '..', 'pages', 'blog'))
-  const allPosts = []
+  const blogs = await fs.readdir(path.join(__dirname, '..', 'pages', 'blog'))
+  const allBlogs = []
   await Promise.all(
-    posts.map(async (name) => {
+    blogs.map(async (name) => {
       if (name.startsWith('index.')) return
 
       const content = await fs.readFile(
@@ -21,9 +21,9 @@ async function generate() {
       )
       const frontmatter = matter(content)
 
-      allPosts.push({
+      allBlogs.push({
         title: frontmatter.data.title,
-        url: '/posts/' + name.replace(/\.mdx?/, ''),
+        url: '/blog/' + name.replace(/\.mdx?/, ''),
         date: frontmatter.data.date,
         description: frontmatter.data.description,
         categories: frontmatter.data.tag.split(', '),
@@ -32,8 +32,8 @@ async function generate() {
     })
   )
 
-  allPosts.sort((a, b) => new Date(b.date) - new Date(a.date))
-  allPosts.forEach((post) => {
+  allBlogs.sort((a, b) => new Date(b.date) - new Date(a.date))
+  allBlogs.forEach((post) => {
       feed.item(post)
   })
   await fs.writeFile('./public/feed.xml', feed.xml({ indent: true }))
