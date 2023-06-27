@@ -14,7 +14,7 @@ export default function Nextra({ Component, pageProps }) {
           href="/feed.xml"
         />
         <link
-          rel="preload"
+          // rel="preload"
           href="/fonts/Inter-roman.latin.var.woff2"
           as="font"
           type="font/woff2"
