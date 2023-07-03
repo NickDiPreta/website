@@ -12,20 +12,23 @@ author: Nicholas DiPreta
 I will be regularly publishing articles with easily digestible chunks relating to partitioning in this series.
 
 The individual articles will be as follows:
+
 1. **Introduction to Partitioning**
-2. Types of Partitioning
-3. Partitioning of Key-Value Data
-4. Partitioning and Secondary Indexes
-5. Rebalancing Partitions
-6. Request Routing
-7. Partitioning in the Real World
+2. Partitioning of Key-Value Data
+3. Partitioning and Secondary Indexes
+4. Rebalancing Partitions
+5. Request Routing
+6. Partitioning in the Real World
 
 
 ---
+
 ### Definition
+
 Partitioning is a way of intentionally breaking a large database into smaller ones.
 
 ---
+
 ## Introduction to Partitioning:
 
 A first step to creating a speedy and reliable data intensive application is often making copies of your data on several nodes. This is known as replication. *However*, once a dataset becomes sufficiently large or has a high engough query throughput, replication is no longer sufficient. Soon, we need to break the data up into **partitions**.
