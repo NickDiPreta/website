@@ -1,6 +1,6 @@
 ---
 title: Partitioning
-date: 07/02/2023
+date: 07/01/2023
 description: Introduction to partitioning.
 tag: partitioning
 author: Nicholas DiPreta
