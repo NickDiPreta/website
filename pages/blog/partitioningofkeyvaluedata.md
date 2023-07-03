@@ -37,3 +37,8 @@ Let's assume that we have a simple key-value data model. One way of partitioning
 The range of keys per partition may not necessarily be the same. If we intend to evenly distribute the data we need to adjust the partitions to contain ranges with even distributions of data. For example, let's say we have 75 records for the letter A, but only 25 records for the letters B,C, and D. A valid balanced partitioning scheme here would be to have half of the records on node A and half on node B. Thus we only have 1/3 of the key range covered on a single node and the remaining 2/3rds of the key range on the second node.
 
 ![Range Partition Illustration](/images/rangepartition1.jpeg)
+
+Within each partition we can keep keys in sorted order to make range scans quick. We can even treat the key as a concatenated index in order to fetch several records at once.
+
+Range partitioning does, however, have its downsides. Certain access patterns can lead to hot spots. Thus, a viable alternative that is commonly used is partitioning by hash of key.
+
