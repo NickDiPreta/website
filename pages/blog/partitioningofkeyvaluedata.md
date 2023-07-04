@@ -1,6 +1,6 @@
 ---
 title: Partitioning of Key Value Data
-date: 07/03/2023
+date: 07/04/2023
 description: Partitioning of Key Value Data.
 tag: partitioning
 author: Nicholas DiPreta
@@ -42,3 +42,17 @@ Within each partition we can keep keys in sorted order to make range scans quick
 
 Range partitioning does, however, have its downsides. Certain access patterns can lead to hot spots. Thus, a viable alternative that is commonly used is partitioning by hash of key.
 
+### Partitioning by hash of key
+
+A good hash function distributes data uniformly. The hashing function does not need to be cryptographically strong for partitioning. Hash partitioning is an easy-to-use alternative to range partitioning, especially when your data has no obvious partitioning key or when the data to be partitioned is not historical.
+
+Some DBMS, like MySQL, have built in hash partitioning that you can chose to use or not to use. <sup>[1][]</sup> Apache Spark, which is used to process large data sets in a distributed manner, uses a Hash Partitioner as it's default partitioning method.<sup>[2][]</sup> One disadvantage to distributing keys across partitions howeverm is that we lose the ability to efficiently do range queries. Apache Cassandra takes a middle ground approach by using a compound primary key. I'll detail that more in the article on Partitioning in the Real World later in this series.
+
+![Hash Partition Illustration](/images/hash_functions.jpeg)
+
+### A note on "Consistent Hashing"
+
+Consistent hashing is a way of evenly distributing load across a system by using randomly chosen partition boundaries. I'll go further into detail on why this particular approach doesn't work well in actuality in the Rebalancing Partitions article later in this series.
+
+[1]: <https://dev.mysql.com/doc/mysql-partitioning-excerpt/8.0/en/partitioning-hash.html> "MySQL:: MySQL Partitioning: 3.4 HASH Partitioning"
+[2]: https://www.clairvoyant.ai/blog/custom-partitioning-an-apache-spark-dataset#:~:text=Spark%20Default%20Partitioner&text=The%20Hash%20Partitioner%20works%20on,distribute%20them%20across%20the%20partitions. "Custom partitioning for better distribution of your data while creating partitions in spark jobs"
