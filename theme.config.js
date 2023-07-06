@@ -8,9 +8,11 @@ export default {
       <style jsx>{`
         a {
           float: right;
+          color: white;
         }
         @media screen and (max-width: 480px) {
           article {
+            color: white;
             padding-top: 2rem;
             padding-bottom: 4rem;
           }
