@@ -27,3 +27,4 @@ So far I've discussed partitioning schemes for a key-value data model. This arti
 Both relational and document based databases use secondary indexes. Key-value stores generally avoid secondary indexes because of the added complexity, but certain outliers, like Riak, are making use of them becaue of their usefulness in data modelling. Secondary indexes are what make servers like Solr and Elasticsearch work so well. 
 
 ### Partitioning Secondary Indexes by Document
+
