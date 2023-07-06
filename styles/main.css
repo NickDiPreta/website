@@ -3,6 +3,7 @@
   font-style: normal;
   font-weight: 100 900;
   font-display: block;
+  font-color: white;
   src: url(/fonts/Inter-roman.latin.var.woff2) format('woff2');
 }
 @font-face {
@@ -10,6 +11,7 @@
   font-style: italic;
   font-weight: 100 900;
   font-display: block;
+  font-color: white;
   src: url(/fonts/Inter-italic.latin.var.woff2) format('woff2');
   font-named-instance: 'Italic';
 }
@@ -31,13 +33,16 @@ strong,
 h3,
 h4,
 h5,
-h6 {
+* h6 {
+  color: white;
   font-variation-settings: 'wght' 650;
 }
 h1 {
+  color: white;
   font-variation-settings: 'wght' 850;
 }
 h2 {
+  color: white;
   font-variation-settings: 'wght' 750;
 }
 
@@ -58,9 +63,36 @@ img.next-image {
 }
 
 .prose a {
-  color: #0074de;
+  color: white;
+}
+.prose a::visited {
+  color: white;
+}
+.prose h1 {
+  color: white;
+}
+.prose h2 {
+  color: white;
+}
+.prose p {
+  color: white;
+}
+.prose strong {
+  color: white;
+}
+.prose li {
+  color: white;
+}
+.prose article {
+  color: white;
+}
+.prose h3 {
+  color: white;
+}
+.prose small {
+  color: white;
 }
 
 .nav-line .nav-link {
-  color: #69778c;
+  color: white;
 }
