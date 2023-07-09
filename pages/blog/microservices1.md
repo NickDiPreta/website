@@ -1,7 +1,7 @@
 ---
-title: Building Microservices With Go
+title: Building Microservices With Go (Part 1)
 date: 07/02/2023
-description: Introduction to microservices (Pt 1.)
+description: Introduction to microservices.
 tag: go
 author: Nicholas DiPreta
 ---
